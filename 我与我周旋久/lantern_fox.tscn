@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://hm4kngfq8cyy"]
+
+[ext_resource type="Script" path="res://lantern_fox.gd" id="1_fox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fox"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lantern"]
+radius = 14.0
+
+[node name="LanternFox" type="CharacterBody2D"]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_fox")
+immune_to_ground_melee = true
+max_hp = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.091, 0.091)
+
+[node name="LanternMarker" type="Marker2D" parent="."]
+position = Vector2(0, 18)
+
+[node name="LanternHitbox" type="Area2D" parent="."]
+position = Vector2(0, 18)
+collision_layer = 1
+collision_mask = 0
+monitoring = false
+monitorable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LanternHitbox"]
+shape = SubResource("CircleShape2D_lantern")
+
+[node name="LanternLight" type="PointLight2D" parent="."]
+position = Vector2(0, 18)
+energy = 0.85
+color = Color(0.4, 0.75, 1, 1)
+
+[node name="SpotSpawn" type="Marker2D" parent="."]
+position = Vector2(0, 90)

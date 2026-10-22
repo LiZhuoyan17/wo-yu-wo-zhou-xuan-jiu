@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://levels/level_04/level_04_ruins.gd" id="1_ruins"]
+[ext_resource type="PackedScene" path="res://Player.tscn" id="2_player"]
+
+[node name="Level_04" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ruins")
+level_id = 4
+
+[node name="Level_Grounds" type="Node2D" parent="."]
+
+[node name="Level_Platforms" type="Node2D" parent="."]
+
+[node name="Level_Hazards" type="Node2D" parent="."]
+
+[node name="Level_Enemies" type="Node2D" parent="."]
+
+[node name="Level_Props" type="Node2D" parent="."]
+
+[node name="SpawnPoint" type="Marker2D" parent="Level_Props"]
+position = Vector2(48, 224)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(48, 224)

@@ -1,0 +1,47 @@
+========================================
+  五层背景贴图投放说明
+========================================
+
+你的层次（由远到近）：
+
+1) 远景 far
+   文件夹：assets/tiles/background/far/
+   推荐名：far_01.png 或 bg_far.png
+   内容：天空、远山、霞光（最慢跟随镜头）
+
+2) 中远景 mid_far
+   文件夹：assets/tiles/background/mid_far/
+   推荐名：mid_far_01.png
+   内容：远树轮廓、亭台剪影
+
+3) 中景 mid
+   文件夹：assets/tiles/background/mid/
+   推荐名：mid_01.png
+   内容：树林、石径、建筑立面（和玩法层关系最近的背景）
+
+4) 纯装饰前景 foreground
+   文件夹：assets/tiles/background/foreground/
+   推荐名：foreground_01.png
+   内容：近处草丛、石柱、纱帘（略快于镜头，产生压镜感）
+   注意：无碰撞，不会挡住走路
+
+5) 花/叶飘落 petals
+   文件夹：assets/tiles/background/petals/
+   推荐名：petal_01.png / leaf_01.png（小图 8~32px 即可）
+   内容：单片花瓣或叶子，会自动飘落循环
+
+【规格建议】
+- 远景~前景大图：宽 640~1280，高 360~720，PNG 透明
+- 花叶：小 PNG，透明底
+- 不改状态机；只影响画面
+
+【你放好图之后】
+跟我说「背景图放好了」，关卡会自动扫描这些文件夹挂上。
+也可以在关卡场景里实例化 levels/ParallaxBackdrop.tscn。
+
+【玩法地形仍放这里（分开）】
+assets/tiles/ground/     实心地面墙
+assets/tiles/platform/   单向平台
+assets/tiles/ladder/     梯子外观
+assets/tiles/hazard/     尖刺
+assets/tiles/decor/      贴地小装饰（瓦当、灯笼）

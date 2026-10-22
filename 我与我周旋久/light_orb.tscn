@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cmktofc60ypti"]
+
+[ext_resource type="Script" uid="uid://cchqhjau8hwh4" path="res://light_orb.gd" id="1_sd1r1"]
+[ext_resource type="Texture2D" uid="uid://oraa0t58783y" path="res://assets/lightPoint.png" id="2_5tqt4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84lt4"]
+
+[node name="LightOrb" type="Area2D" unique_id=1143058666]
+scale = Vector2(0.01, 0.01)
+script = ExtResource("1_sd1r1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=910797872]
+shape = SubResource("CircleShape2D_84lt4")
+
+[node name="Star" type="Sprite2D" parent="." unique_id=419309169]
+texture = ExtResource("2_5tqt4")
+
+[node name="starlight" type="Sprite2D" parent="." unique_id=838721575]

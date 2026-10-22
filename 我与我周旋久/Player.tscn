@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://boe0qg63qmo4t"]
+
+[ext_resource type="Script" uid="uid://bnsiill2sm2yf" path="res://player.gd" id="1_xhfnw"]
+[ext_resource type="PackedScene" uid="uid://8nb225eur14n" path="res://magic_orb.tscn" id="2_e80uo"]
+[ext_resource type="Texture2D" uid="uid://ixsi0buj3pow" path="res://assets/shadow.png" id="2_kne1u"]
+[ext_resource type="Texture2D" uid="uid://bivwy3luyhgoj" path="res://assets/playerLight .png" id="4_e80uo"]
+[ext_resource type="Script" path="res://camera_shake.gd" id="5_camshake"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dxm6"]
+
+[node name="Player" type="CharacterBody2D" unique_id=414167788]
+script = ExtResource("1_xhfnw")
+magic_orb_scene = ExtResource("2_e80uo")
+shadow_texture = ExtResource("2_kne1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1261031037]
+shape = SubResource("CircleShape2D_3dxm6")
+
+[node name="Sprite_light" type="Sprite2D" parent="." unique_id=415795688]
+position = Vector2(0, 8.34465e-07)
+scale = Vector2(5, 5)
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=437783183]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("4_e80uo")
+
+[node name="RealLight" type="PointLight2D" parent="." unique_id=1245662882]
+energy = 0.55
+color = Color(1, 0.85, 0.45, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_camshake")

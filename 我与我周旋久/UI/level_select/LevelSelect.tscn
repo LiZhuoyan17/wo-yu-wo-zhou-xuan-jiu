@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/level_select/level_select.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/cover.png" id="2_cover"]
+
+[node name="LevelSelect" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_cover")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.35)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+text = "关卡选择"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.95, 0.95, 1, 1)
+
+[node name="Hint" type="Label" parent="CenterContainer/VBoxContainer"]
+text = "通关上一关后解锁下一关"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 1)
+
+[node name="LevelList" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+theme_override_constants/separation = 10
+
+[node name="BtnBack" type="Button" parent="CenterContainer/VBoxContainer"]
+text = "回到主页"

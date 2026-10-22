@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://levels/spike_hazard.gd" id="1_spike"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spike"]
+size = Vector2(28, 16)
+
+[node name="SpikeHazard" type="Area2D"]
+script = ExtResource("1_spike")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_spike")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+# 你放好 hazard/spike_01.png 后，在编辑器里把 Texture 指过去即可
+centered = true

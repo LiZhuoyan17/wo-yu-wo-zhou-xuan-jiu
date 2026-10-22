@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8nb225eur14n"]
+
+[ext_resource type="Script" uid="uid://du7baomjfgdd7" path="res://magic_orb.gd" id="1_almmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84lt4"]
+
+[node name="magic_orb" type="Area2D" unique_id=928985867]
+script = ExtResource("1_almmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=872483233]
+shape = SubResource("CircleShape2D_84lt4")

@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://levels/level_controller.gd" id="1_ctrl"]
+[ext_resource type="PackedScene" path="res://Player.tscn" id="2_player"]
+
+[node name="Level_02" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ctrl")
+level_id = 2
+layout_preset = "shadow_path"
+
+[node name="TileLayers" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="TileLayers"]
+
+[node name="Platforms" type="TileMapLayer" parent="TileLayers"]
+
+[node name="Decor" type="TileMapLayer" parent="TileLayers"]
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(50, 224)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(50, 224)

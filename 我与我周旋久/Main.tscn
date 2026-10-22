@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://clmypuwedk1hv"]
+
+[ext_resource type="PackedScene" uid="uid://boe0qg63qmo4t" path="res://Player.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://3ojfb3sqiusb" path="res://lightdoor.gd" id="2_uu6xs"]
+[ext_resource type="Texture2D" uid="uid://c1fstdgum3jyy" path="res://assets/DoorOpen.png" id="3_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://j0bhr46gt85k" path="res://assets/DoorClose.png" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://cmktofc60ypti" path="res://light_orb.tscn" id="5_fos0i"]
+[ext_resource type="PackedScene" uid="uid://bv2seapu4w6tw" path="res://enemy.tscn" id="6_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://hm4kngfq8cyy" path="res://lantern_fox.tscn" id="7_fox"]
+[ext_resource type="PackedScene" path="res://levels/PetalsParticle.tscn" id="8_petals"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84lt4"]
+size = Vector2(3144, 38)
+
+[node name="Main" type="Node2D" unique_id=528517763]
+y_sort_enabled = true
+
+[node name="PetalsAtmosphere" parent="." instance=ExtResource("8_petals")]
+
+[node name="Player" parent="." unique_id=414167788 instance=ExtResource("1_glv2v")]
+position = Vector2(17, 204)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1250472080]
+position = Vector2(-2.002, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1385114217]
+position = Vector2(1553.002, 30)
+shape = SubResource("RectangleShape2D_84lt4")
+
+[node name="Lightdoor" type="Node2D" parent="." unique_id=1264531024 node_paths=PackedStringArray("door_closed", "door_open")]
+z_index = -1
+position = Vector2(1009, 187)
+script = ExtResource("2_uu6xs")
+door_closed = NodePath("DoorClose")
+door_open = NodePath("DoorOpen")
+
+[node name="DoorOpen" type="Sprite2D" parent="Lightdoor" unique_id=1127552112]
+position = Vector2(1, -36.16)
+scale = Vector2(0.14, 0.13835938)
+texture = ExtResource("3_cm0pq")
+
+[node name="DoorClose" type="Sprite2D" parent="Lightdoor" unique_id=185412008]
+position = Vector2(0.99999857, -37.000004)
+scale = Vector2(0.2675782, 0.2714844)
+texture = ExtResource("4_cm0pq")
+
+[node name="LightOrb" parent="." unique_id=1143058666 instance=ExtResource("5_fos0i")]
+position = Vector2(294, 201)
+scale = Vector2(0.03, 0.03)
+
+[node name="enemy" parent="." unique_id=1688021746 instance=ExtResource("6_3dxm6")]
+position = Vector2(798, 201)
+
+[node name="LanternFox" parent="." unique_id=1656538799 instance=ExtResource("7_fox")]
+position = Vector2(528, 184)
